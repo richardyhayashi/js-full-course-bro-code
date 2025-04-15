@@ -1,7 +1,6 @@
-let fullName = "Richard Hayashi";
-let age = 25;
-let isStudent = false;
+let username;
 
-document.getElementById("p1").textContent = `Your name is ${fullName}`;
-document.getElementById("p2").textContent = `You are ${age} years old`;
-document.getElementById("p3").textContent = `Enrolled: ${isStudent}`;
+document.getElementById('mySubmit').onclick = function() {
+  username = document.getElementById('myText').value;
+  document.getElementById('myH1').textContent = `Hello ${username}`;
+};
