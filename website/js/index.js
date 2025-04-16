@@ -1,36 +1,34 @@
-// 
+// array
 
-// hello(wait);
+let fruits = ["apple", "orange", "banana", "coconut"];
 
-// function hello(callback) {
-//    console.log("Hello!");
-//    callback();
-// }
+//fruits[3] = "Coconut",
+//fruits.push("coconut")
+//fruits.pop();
+//fruits.unshift("mango");
+//fruits.shift();
 
-// function wait() {
-//    console.log("Wait!");
-// }
+// console.log(fruits[0]);
+// console.log(fruits[1]);
+// console.log(fruits[2]);
+// console.log(fruits[3]);
 
-// function leave() {
-//    console.log("Leave!");
-// }
+// let numOfFruits = fruits.length;
+// let index = fruits.indexOf("mango")
 
-// function goodbye() {
-//   console.log('Goodbye!');
-// }
+// console.log(numOfFruits);
+// console.log(index);
 
-sum(displayPage, 1, 2);
-
-function sum(callback, x, y) {
-   let result = x + y;
-
-   callback(result);
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
 }
 
-function displayConsole(result) {
-   console.log(result);
+for (let i = fruits.length - 1; i >= 0; i--) {
+  console.log(fruits[i]);
 }
 
-function displayPage(result) {
-   document.getElementById("myH1").textContent = result;
+fruits.sort().reverse();
+
+for (let fruit of fruits) {
+   console.log(fruit);
 }
