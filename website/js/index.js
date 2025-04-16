@@ -1,34 +1,24 @@
-// array
+// spread operator
 
-let fruits = ["apple", "orange", "banana", "coconut"];
+// let numbers = [1, 2, 3, 4, 5];
+// let maximum = Math.max(...numbers);
+// let minimum = Math.min(...numbers);
 
-//fruits[3] = "Coconut",
-//fruits.push("coconut")
-//fruits.pop();
-//fruits.unshift("mango");
-//fruits.shift();
+// console.log(minimum);
+// console.log(maximum);
 
-// console.log(fruits[0]);
-// console.log(fruits[1]);
-// console.log(fruits[2]);
-// console.log(fruits[3]);
+// let username = "Bro Code";
+// let letters = [...username].join('-');
 
-// let numOfFruits = fruits.length;
-// let index = fruits.indexOf("mango")
+// console.log(letters);
 
-// console.log(numOfFruits);
-// console.log(index);
+let fruits = ["apple", 'orange', 'banana'];
+let newFruits = [...fruits];
+let vegtables = ["carrots", "celery", "potatoes"]
 
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
-}
+console.log(fruits);
+console.log(newFruits);
 
-for (let i = fruits.length - 1; i >= 0; i--) {
-  console.log(fruits[i]);
-}
+let foods = [...fruits, ...vegtables, "eggs", "milk"];
 
-fruits.sort().reverse();
-
-for (let fruit of fruits) {
-   console.log(fruit);
-}
+console.log(foods);
