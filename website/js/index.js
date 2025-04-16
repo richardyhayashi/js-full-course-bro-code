@@ -1,24 +1,61 @@
-// spread operator
+// rest parameters
 
-// let numbers = [1, 2, 3, 4, 5];
-// let maximum = Math.max(...numbers);
-// let minimum = Math.min(...numbers);
+// function openFridge(...foods) {
+//    console.log(...foods);
+// }
 
-// console.log(minimum);
-// console.log(maximum);
+// function getFood(...foods) {
+//    return foods;
+// }
 
-// let username = "Bro Code";
-// let letters = [...username].join('-');
+// const food1 = 'pizza';
+// const food2 = 'hamburger';
+// const food3 = 'hotdog';
+// const food4 = 'sushi';
+// const food5 = 'ramen';
 
-// console.log(letters);
+// openFridge(food1, food2, food3, food4, food5);
 
-let fruits = ["apple", 'orange', 'banana'];
-let newFruits = [...fruits];
-let vegtables = ["carrots", "celery", "potatoes"]
+// const foods = getFood(food1, food2, food3, food4, food5);
 
-console.log(fruits);
-console.log(newFruits);
+// console.log(foods);
 
-let foods = [...fruits, ...vegtables, "eggs", "milk"];
 
-console.log(foods);
+
+// function sum(...numbers) {
+//    let result = 0;
+
+//    for (let number of numbers) {
+//       result += number;
+//    }
+
+//    return result;
+// }
+
+// function getAverage(...numbers) {
+//   let result = 0;
+
+//   for (let number of numbers) {
+//     result += number;
+//   }
+
+//   return result / numbers.length;
+// }
+
+// const total = sum(1, 2, 3, 4, 5);
+
+// console.log(`Your total is $${total}`);
+
+// const avg = getAverage(75, 100, 85, 90, 50);
+
+// console.log(avg);
+
+
+
+function combineStrings(...strings) {
+   return strings.join(" ");
+}
+
+const fullName = combineStrings("Mr.", "Spongebob", "Squarepants", "III");
+
+console.log(fullName);
