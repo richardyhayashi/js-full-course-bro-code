@@ -1,31 +1,21 @@
 //
 
-//const fullName = "Bro Code";
+// ----- NO METHOD CHAINING -----
 
-// let firstName = fullName.slice(0, 3);
-// let lastName = fullName.slice(4);
+let username = window.prompt("Enter your username: ");
 
-// console.log(firstName);
-// console.log(lastName);
+// username = username.trim();
+// let letter = username.charAt(0);
+// letter = letter.toUpperCase();
 
-// let firstChar = fullName.slice(0, 1);
-// let lastChar = fullName.slice(-1);
+// let extraChars = username.slice(1);
+// extraChars = extraChars.toLocaleLowerCase();
+// username = letter + extraChars;
 
-// console.log(firstChar);
-// console.log(lastChar);
+console.log(username);
 
-const fullName = "Broseph Code";
+// ---- METHOD CHAINING -----
 
-let firstName = fullName.slice(0, fullName.indexOf(' '));
-let lastName = fullName.slice(fullName.indexOf(' ') + 1);
+username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
 
-console.log(firstName);
-console.log(lastName);
-
-const email = "Bro1@gmail.com";
-
-let username = email.slice(0, email.indexOf('@'));
-let extension = email.slice(email.indexOf('@') + 1);
-
-console.log(username)
-console.log(extension);
+console.log(username);
