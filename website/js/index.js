@@ -1,45 +1,21 @@
-// RANDOM PASSWORD GENERATOR
+// TEMPERATURE CONVERSION PROGRAM
 
-function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
-   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   const numbersChars = "0123456789";
-   const symbolChars = "!@#$%^&*()+~";
+const textBox = document.getElementById('textBox');
+const toFahrenheit = document.getElementById('toFahrenheit');
+const toCelsius = document.getElementById('toCelsius');
+const result = document.getElementById('result');
+let temp;
 
-   let allowedChars = "";
-   let password = "";
-
-   allowedChars += includeLowercase ? lowercaseChars : "";
-   allowedChars += includeUppercase ? uppercaseChars : "";
-   allowedChars += includeNumbers ? numbersChars : "";
-   allowedChars += includeSymbols ? symbolChars : "";
-
-   if (length <= 0) {
-      return `(password length must be at least 1)`;
+function convert() {
+   if (toFahrenheit.checked) {
+      temp = Number(textBox.value);
+      temp = temp * 9 /5 + 32;
+      result.textContent = temp.toFixed(1) + "°F";
+   } else if (toCelsius.checked) {
+      temp = Number(textBox.value);
+      temp = (temp -32) * (5 / 9);
+      result.textContent = temp.toFixed(1) + '°C';
+   } else {
+      result.textContent = "Select a unit"
    }
-
-   if (allowedChars.length === 0) {
-      return `(At least 1 set of characters needs to be selected)`;
-   }
-
-   for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * allowedChars.length);
-      password += allowedChars[randomIndex];
-   }
-
-   return password;
 }
-
-const passwordLength = 16;
-const includeLowercase = true;
-const includeUppercase = true;
-const includeNumbers = true;
-const includeSymbols = true;
-
-const password = generatePassword(passwordLength,
-                                  includeLowercase,
-                                  includeUppercase,
-                                  includeNumbers,
-                                  includeSymbols);
-
-console.log(`Generated password: ${password}`);
