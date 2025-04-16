@@ -1,32 +1,36 @@
-// NUMBER GUESSING GAME
+// 
 
-const MINIMUM = 1;
-const MAXIMUM = 100;
-const answer = Math.floor(Math.random() * (MAXIMUM - MINIMUM + 1)) + MINIMUM;
+// hello(wait);
 
-let attempts = 0;
-let running = true;
-let guess;
+// function hello(callback) {
+//    console.log("Hello!");
+//    callback();
+// }
 
-while (running) {
-   guess = window.prompt(`Guess a number between ${MINIMUM} - ${MAXIMUM}`);
-   guess = Number(guess);
+// function wait() {
+//    console.log("Wait!");
+// }
 
-   if (isNaN(guess)) {
-      window.alert("Please enter a valid number");
-      continue;
-   } else if (guess < MINIMUM || guess > MAXIMUM) {
-      window.alert('Please enter a valid number');
-      continue;
-   }
+// function leave() {
+//    console.log("Leave!");
+// }
 
-   attempts++;
-   if (guess < answer) {
-      window.alert('TOO LOW! TRY AGAIN!');
-   } else if (guess > answer) {
-      window.alert('TOO HIGH! TRY AGAIN!');
-   } else {
-      window.alert(`CORRECT! The answer was ${answer}. It took you ${attempts} attempts`);
-      running = false;
-   }
+// function goodbye() {
+//   console.log('Goodbye!');
+// }
+
+sum(displayPage, 1, 2);
+
+function sum(callback, x, y) {
+   let result = x + y;
+
+   callback(result);
+}
+
+function displayConsole(result) {
+   console.log(result);
+}
+
+function displayPage(result) {
+   document.getElementById("myH1").textContent = result;
 }
