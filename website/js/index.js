@@ -1,58 +1,51 @@
-// nested objects
+const fruits = [
+  { name: 'apple', color: 'red', calories: 95 },
+  { name: 'orange', color: 'orange', calories: 45 },
+  { name: 'banana', color: 'yellow', calories: 105 },
+  { name: 'coconut', color: 'white', calories: 159 },
+  { name: 'pineapple', color: 'yellow', calories: 37 },
+];
 
-// const person = {
-//   fullName: "Spongebob Squarepants",
-//   age: 30,
-//   isStudent: true,
-//   hobbies: ["karate", "jellyfishing", "cooking"],
-//   address: {
-//     street: "124 Conch St.",
-//     city: "Bikini Bottom",
-//     country: "Intl. Waters"
-//   }
-// }
+console.log(fruits[0].calories);
 
-// console.log(person.fullName);
-// console.log(person.age);
-// console.log(person.isStudent);
-// console.log(person.hobbies[2]);
-// console.log(person.address.country);
+//fruits.push({name: "grapes", color: "purple", calories: 62});
 
-// for (const property in person.address) {
-//   console.log(person.address[property]);
-// }
+//fruits.pop();
 
+//fruits.splice(1, 2)
 
+//console.log(fruits);
 
-class Person {
-  constructor(name, age, ...address) {
-    this.name = name;
-    this.age = age;
-    this.address = new Address(...address);
-  }
-}
+// --- forEach() ---
 
-class Address {
-    constructor(street, city, country) {
-      this.street = street;
-      this.city = city;
-      this.country =country;
-    }
-}
+//fruits.forEach(fruit => console.log(fruit.calories));
 
-const person1 = new Person("Spongebob", 30, "124 Conch St.",
-                                            "Bikini Bottom",
-                                            "Intl. Waters");
-const person2 = new Person('Patrick', 37, '128 Conch St.',
-                                          'Bikini Bottom',
-                                          'Intl. Waters');
-const person3 = new Person('Squidward', 45, '126 Conch St.',
-                                            'Bikini Bottom',
-                                            'Intl. Waters');
+// --- map() ---
 
-console.log(person3.name);
-console.log(person3.age);
-console.log(person3.address);
-console.log(person3.address.street);
-console.log(person3.address.city);
-console.log(person3.address.country);
+const fruitNames = fruits.map(fruit => fruit.name);
+const fruitColors = fruits.map(fruit => fruit.color);
+const fruitCalories = fruits.map((fruit) => fruit.calories);
+
+console.log(fruitNames);
+console.log(fruitColors);
+console.log(fruitCalories);
+
+// --- filter() ---
+
+const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
+const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
+const highCalFruits = fruits.filter(fruit => fruit.calories >= 100);
+
+console.log(yellowFruits);
+console.log(lowCalFruits);
+console.log(highCalFruits);
+
+// --- reduce() ---
+
+const maxFruit = fruits.reduce((max, fruit) =>
+                                  fruit.calories > max.calories ? fruit : max);
+const minFruit = fruits.reduce((min, fruit) =>
+                                  fruit.calories < min.calories ? fruit : min);
+
+console.log(maxFruit);
+console.log(minFruit);
