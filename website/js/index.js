@@ -1,29 +1,39 @@
-// .reduce()
+// function expressions
 
-// const prices = [5, 30, 10, 25, 15, 20];
-
-// const total = prices.reduce(sum);
-
-// console.log(`$${total.toFixed(2)}`);
-
-// function sum(accumulator, element) {
-//    return accumulator + element;
+// const hello = function() {
+//    console.log("Hello");
 // }
 
+// hello();
 
 
-const grades = [75, 50, 90, 80, 65, 95];
+// setTimeout(hello, 3000);
+// setTimeout(function() {
+//    console.log("Hello");
+// }, 3000);
 
-const maximum = grades.reduce(getMax);
-const minimum = grades.reduce(getMin);
 
-console.log(maximum);
-console.log(minimum);
 
-function getMax(accumulator, element) {
-   return Math.max(accumulator, element);
-}
+const numbers = [1, 2, 3, 4, 5, 6];
 
-function getMin(accumulator, element) {
-  return Math.min(accumulator, element);
-}
+const squares = numbers.map(function(element) {
+   return Math.pow(element, 2);
+});
+const cubes = numbers.map(function(element) {
+   return Math.pow(element, 3);
+});
+const evenNums = numbers.filter(function(element) {
+   return element % 2 === 0;
+});
+const oddNums = numbers.filter(function (element) {
+  return element % 2 !== 0;
+});
+const total = numbers.reduce((accumulator, element) => {
+   return accumulator + element;
+});
+
+//console.log(squares);
+//console.log(cubes);
+console.log(evenNums);
+console.log(oddNums);
+console.log(total);
