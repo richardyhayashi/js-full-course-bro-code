@@ -1,102 +1,72 @@
-// getters & setters
+// destructuring
 
-// class Rectangle {
-//   constructor(width, height) {
-//     this.width = width;
-//     this.height = height;
-//   }
+// --- EXAMPLE 1 ---
+// SWAP THE VALUE OF TWO VARIABLES
 
-//   set width(newWidth) {
-//     if (newWidth > 0) {
-//       this._width = newWidth;
-//     } else {
-//       console.error('width must be a positive number');
-//     }
-//   }
+let a = 1;
+let b = 2;
 
-//   get width() {
-//     return `${this._width.toFixed(1)}cm`;
-//   }
+[a, b] = [b, a]
 
-//   set height(newHeight) {
-//     if (newHeight > 0) {
-//       this._height = newHeight;
-//     } else {
-//       console.error('height must be a positive number');
-//     }
-//   }
-
-//   get height() {
-//     return `${this._height.toFixed(1)}cm`;
-//   }
-
-//   get area() {
-//     return `${(this._width * this._height).toFixed(1)}cm^2`;
-//   }
-// }
-
-// const rectangle = new Rectangle(3, 4);
-
-// rectangle.width = 5;
-// rectangle.height = 6;
-
-// console.log(rectangle.width);
-// console.log(rectangle.height);
-// console.log(rectangle.area);
+console.log(a);
+console.log(b);
 
 
+// --- EXAMPLE 2 ---
+// SWAP 2 ELEMENTS IN AN ARRAY
 
-class Person {
-  constructor(firstName, lastName, age) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
+const colors = ["red", "green", "blue", "black", "white"];
 
-  set firstName(newFirstName) {
-    if (typeof newFirstName === 'string' && newFirstName.length > 0) {
-      this._firstName = newFirstName;
-    } else {
-      console.error('First name must be a non-empty string!');
-    }
-  }
+[colors[0], colors[4]] = [colors[4], colors[0]];
 
-  get firstName() {
-    return this._firstName;
-  }
+console.log(colors);
 
-  set lastName(newLastName) {
-    if (typeof newLastName === 'string' && newLastName.length > 0) {
-      this._lastName = newLastName;
-    } else {
-      console.error('Last name must be a non-empty string!');
-    }
-  }
 
-  get lastName() {
-    return this._lastName;
-  }
+// --- EXAMPLE 3 ---
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
 
-  get fullName() {
-    return `${this._firstName} ${this._lastName}`;
-  }
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
 
-  set age(newAge) {
-    if (typeof newAge === 'number' && newAge >= 0) {
-      this._age = newAge;
-    } else {
-      console.error('Age must be a non-negative number');
-    }
-  }
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
 
-  get age() {
-    return this._age;
-  }
+
+// --- EXAMPLE 4 ---
+// EXTRACT VALUES FROM OBJECTS
+
+const person1 = {
+  firstName: "Spongebob",
+  lastName: "Squarepants",
+  age: 30,
+  job: "Fry Cook",
 }
 
-const person = new Person("Spongebob", "Squarepants", 30);
+const person2 = {
+  firstName: 'Patrick',
+  lastName: 'Star',
+  age: 34,
+};
 
-console.log(person.firstName);
-console.log(person.lastName);
-console.log(person.fullName);
-console.log(person.age);
+
+//const {firstName, lastName, age, job} = person1;
+const { firstName, lastName, age, job='Unemployed' } = person2;
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+
+// --- EXAMPLE 5 ---
+// DESTRUCTURE IN FUNCTION PARAMETERS
+
+function displayPerson({firstName, lastName, age, job="Unemployed"}) {
+  console.log(`name: ${firstName} ${lastName}`);
+  console.log(`age: ${age}`);
+  console.log(`job: ${job}`);
+}
+
+displayPerson(person1);
+displayPerson(person2);
