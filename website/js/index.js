@@ -1,54 +1,56 @@
-// static
+// inheritance
 
-// class MathUtil {
-//    static PI = 3.14159;
+class Animal {
+   alive = true;
 
-//    static getDiameter(radius) {
-//       return 2 * radius;
-//    }
-//    static getCircumference(radius) {
-//       return 2 * this.PI * radius;
-//    }
-//    static getArea(radius) {
-//       return this.PI * Math.pow(radius, 2);
-//    }
-// }
-
-// console.log(MathUtil.PI);
-// console.log(MathUtil.getDiameter(10));
-// console.log(MathUtil.getCircumference(10));
-// console.log(MathUtil.getArea(10));
-
-
-
-class User {
-   static userCount = 0;
-
-   constructor(username) {
-      this.username = username;
-
-      User.userCount++;
+   eat() {
+      console.log(`This ${this.name} is eating`)
    }
 
-   static getUserCount() {
-      console.log(`There are ${User.userCount} users online`);
-   }
-
-   sayHello() {
-      console.log(`Hello, my username is ${this.username}`)
+   sleep() {
+      console.log(`This ${this.name} is sleeping`);
    }
 }
 
-const user1 = new User('Spongebob');
-const user2 = new User('Patrick');
-const user3 = new User('Sandy');
+class Rabbit extends Animal {
+   name = "rabbit";
 
-//console.log(user1.username);
-//console.log(user2.username);
-//console.log(user3.username);
+   run() {
+      console.log(`This ${this.name} is running`);
+   }
+}
 
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
+class Fish extends Animal {
+  name = 'fish';
 
-User.getUserCount();
+  swim() {
+   console.log(`This ${this.name} is swimming`);
+  }
+}
+
+class Hawk extends Animal {
+  name = 'hawk';
+
+  fly(){
+   console.log(`This ${this.name} is flying`);
+  }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+rabbit.run();
+
+console.log(fish.alive);
+fish.eat();
+fish.sleep();
+fish.swim();
+
+console.log(hawk.alive);
+hawk.eat();
+hawk.sleep();
+hawk.fly();
