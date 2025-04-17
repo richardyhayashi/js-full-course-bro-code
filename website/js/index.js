@@ -1,32 +1,34 @@
-// constructor
+// class
 
-function Car(make, model, year, color) {
-   this.make = make,
-   this.model = model,
-   this.year = year,
-   this.color = color
-   this.drive = function () {console.log(`You drive the ${this.model}`)}
+class Product {
+   constructor(name, price) {
+      this.name = name;
+      this.price = price;
+   }
+
+   displayProduct() {
+      console.log(`Product: ${this.name}`);
+      console.log(`Price: $${this.price.toFixed(2)}`);
+   }
+
+   calculateTotal(salesTax) {
+      return this.price + (this.price * salesTax)
+   }
 }
+const salesTax = 0.05;
 
-const car1 = new Car("Ford", "Mustang", 2024, "red");
-const car2 = new Car('Chevrolet', 'Camaro', 2025, 'blue');
-const car3 = new Car('Dodge', 'Charger', 2026, 'silver');
+const product1 = new Product('Shirt', 19.99);
+const product2 = new Product('Pants', 22.50);
+const product3 = new Product('Underware', 100.00);
 
-// console.log(car1.make);
-// console.log(car1.model);
-// console.log(car1.year);
-// console.log(car1.color);
+product1.displayProduct();
+let total = product1.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
 
-// console.log(car2.make);
-// console.log(car2.model);
-// console.log(car2.year);
-// console.log(car2.color);
+product2.displayProduct();
+total = product2.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
 
-// console.log(car3.make);
-// console.log(car3.model);
-// console.log(car3.year);
-// console.log(car3.color);
-
-car1.drive();
-car2.drive();
-car3.drive();
+product3.displayProduct();
+total = product3.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
