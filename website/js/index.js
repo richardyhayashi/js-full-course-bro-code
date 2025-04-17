@@ -1,48 +1,46 @@
-// 
+// .map()
 
-// let numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
-// numbers.forEach(cube);
-// numbers.forEach(display);
+// const squares = numbers.map(square);
+// const cubes = numbers.map(cube);
 
-// function double(element, index, array) {
-//    array[index] = element * 2;
+// console.log(cubes);
+
+// function square(element) {
+//    return Math.pow(element, 2)
 // }
 
-// function triple(element, index, array) {
-//    array[index] = element * 3;
-// }
-
-// function square(element, index, array) {
-//    array[index] = Math.pow(element, 2)
-// }
-
-// function cube(element, index, array) {
-//   array[index] = Math.pow(element, 3);
-// }
-
-// function display(element) {
-//    console.log(element);
+// function cube(element) {
+//   return Math.pow(element, 3);
 // }
 
 
-let fruits = ['apple', 'orange', 'banana', "Coconut"];
 
-fruits.forEach(capitalize);
-fruits.forEach(display);
+// const students = ["Spongebob", "Patrick", "Squidward", "Sandy"];
 
-function upperCase(element, index, array) {
-   array[index] = element.toUpperCase();
-}
+// const studentsUpper = students.map(upperCase);
+// const studentsLower = students.map(lowerCase);
 
-function lowerCase(element, index, array) {
-  array[index] = element.toLowerCase();
-}
+// console.log(studentsLower);
 
-function capitalize(element, index, array) {
-   array[index] = element.charAt(0).toUpperCase() + element.slice(1);
-}
+// function upperCase(element) {
+//   return element.toUpperCase();
+// }
 
-function display(element) {
-   console.log(element);
+// function lowerCase(element) {
+//   return element.toLowerCase();
+// }
+
+
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+
+const formattedDates = dates.map(format);
+
+console.log(formattedDates);
+
+function format(element) {
+   const parts = element.split('-');
+
+   return `${parts[1]}/${parts[2]}/${parts[0]}`;
 }
