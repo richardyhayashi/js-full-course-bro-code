@@ -1,94 +1,35 @@
-// JSON
+// fetch()
 
-// const names = ['Spongebob', 'Patrick', 'Squidward', 'Sandy'];
-// const person = {
-//   name: 'Spongebob',
-//   age: 30,
-//   isEmployed: true,
-//   hobbies: ['Jellyfishing', 'Karate', 'Cooking'],
-// };
-// const people = [
-//   {
-//     name: 'Spongebob',
-//     age: 30,
-//     isEmployed: true,
-//   },
-//   {
-//     name: 'Patrick',
-//     age: 34,
-//     isEmployed: false,
-//   },
-//   {
-//     name: 'Squidward',
-//     age: 50,
-//     isEmployed: true,
-//   },
-//   {
-//     name: 'Sandy',
-//     age: 27,
-//     isEmployed: false,
-//   },
-// ];
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//    .then(response => {
+//       if (!response.ok) {
+//          throw new Error("Could not fecth resource");
+//       }
 
-// const jsonString = JSON.stringify(names);
-// console.log(names);
-// console.log(jsonString);
-
-// const jsonString2 = JSON.stringify(person);
-// console.log(person);
-// console.log(jsonString2);
-
-// const jsonString3 = JSON.stringify(person);
-// console.log(people);
-// console.log(jsonString3);
+//       return response.json();
+//    })
+//    .then(data => console.log(data))
+//    .catch(error => console.error(error));
 
 
+async function fetchData() {
+   try {
+      const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+      );
 
-// const jsonNames = `["Spongebob", "Patrick", "Squidward", "Sandy"]`;
-// const jsonPerson = `{
-//   "name": "Spongebob",
-//   "age": 30,
-//   "isEmployed": true,
-//   "hobbies": ["Jellyfishing", "Karate", "Cooking"]
-// }`;
-// const jsonPeople = `[
-//   {
-//     "name": "Spongebob",
-//     "age": 30,
-//     "isEmployed": true
-//   },
-//   {
-//     "name": "Patrick",
-//     "age": 34,
-//     "isEmployed": false
-//   },
-//   {
-//     "name": "Squidward",
-//     "age": 50,
-//     "isEmployed": true
-//   },
-//   {
-//     "name": "Sandy",
-//     "age": 27,
-//     "isEmployed": false
-//   }
-// ]`;
+      if (!response.ok) {
+         throw new Error("Coulc not fetch resource");
+      }
 
-// // const parsedData = JSON.parse(jsonNames);
-// // console.log(jsonNames);
-// // console.log(parsedData);
+      const data = await response.json();
+      const pokemonSprite = data.sprites.front_default;
+      const imgElement = document.getElementById("pokemonSprite");
 
-// // const parseData2 = JSON.parse(jsonPerson);
-// // console.log(jsonPerson);
-// // console.log(parseData2);
-
-// const parseData3 = JSON.parse(jsonPeople);
-// console.log(jsonPeople);
-// console.log(parseData3);
-
-
-
-fetch("people.json")
-   .then(response => response.json())
-   .then(values  => values.forEach(value => console.log(value.name)))
-   .catch(error => console.log(error));
+      imgElement.src = pokemonSprite;
+      imgElement.style.display = "block";
+   } catch(error) {
+      console.error(error);
+   }
+}
