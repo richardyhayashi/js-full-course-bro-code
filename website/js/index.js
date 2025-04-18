@@ -1,67 +1,39 @@
-// closure
+// setTimeout(callback, delay)
 
-// function outer() {
-//   let message = 'Hello';
-
-//   function inner() {
-//     console.log(message);
-//   }
-
-//   inner();
+// --- Named Function ---
+// function sayHello() {
+//   window.alert('Hello');
 // }
-
-// outer();
-
-
-
-// function createCounter() {
-//   let count = 0;
-
-//   function increment() {
-//     count++;
-//     console.log(`Count increment to ${count}`);
-//   }
-
-//   function getCount() {
-//     return count;
-//   }
-
-//   return {increment, getCount};
-// }
-
-// const counter = createCounter();
-// counter.increment();
-// counter.increment();
-// counter.increment();
-// counter.increment();
-
-// console.log(`The current count is ${counter.getCount()}`);
+// setTimeout(sayHello, 3000);
 
 
 
-function createGame() {
-  let score = 0;
+// --- Anonymous Function ---
+// setTimeout(function () {
+//   window.alert("Hello");
+// }, 3000);
 
-  function increaseScore(points) {
-    score += points;
-    console.log(`+${points}pts`);
-  }
 
-  function decreaseScore(points) {
-    score -= points;
-    console.log(`-${points}pts`);
-  }
 
-  function getScore() {
-    return score;
-  }
+// --- Arrow Function ---
+//setTimeout(() => window.alert("Hello"), 3000);
 
-  return {increaseScore, decreaseScore, getScore};
+
+
+// clearTimeout(timeoutId)
+// const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+// clearTimeout(timeoutId);
+
+
+
+let timeoutId;
+
+function startTimer() {
+  timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+  console.log("STARTED");
 }
 
-const game = createGame();
-
-game.increaseScore(5);
-game.increaseScore(6);
-game.decreaseScore(3);
-console.log(`The final score is ${game.getScore()}`);
+function clearTimer() {
+  clearTimeout(timeoutId);
+  console.log("CLEARED");
+}
