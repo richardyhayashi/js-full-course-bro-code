@@ -1,39 +1,15 @@
-// setTimeout(callback, delay)
+// ES6 Modules
 
-// --- Named Function ---
-// function sayHello() {
-//   window.alert('Hello');
-// }
-// setTimeout(sayHello, 3000);
+import PI, {getCricumference, getArea, getVolume, getSurfaceArea} from "./mathUtil.js";
 
 
+console.log(PI);
+const circumference = getCricumference(10);
+const area = getArea(10);
+const surfaceArea = getSurfaceArea(10);
+const volume = getVolume(10);
 
-// --- Anonymous Function ---
-// setTimeout(function () {
-//   window.alert("Hello");
-// }, 3000);
-
-
-
-// --- Arrow Function ---
-//setTimeout(() => window.alert("Hello"), 3000);
-
-
-
-// clearTimeout(timeoutId)
-// const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
-// clearTimeout(timeoutId);
-
-
-
-let timeoutId;
-
-function startTimer() {
-  timeoutId = setTimeout(() => window.alert("Hello"), 3000);
-  console.log("STARTED");
-}
-
-function clearTimer() {
-  clearTimeout(timeoutId);
-  console.log("CLEARED");
-}
+console.log(`${circumference.toFixed(2)}cm`);
+console.log(`${area.toFixed(2)}cm^2`);
+console.log(`${surfaceArea.toFixed(2)}cm^2`);
+console.log(`${volume.toFixed(2)}cm^3`);
