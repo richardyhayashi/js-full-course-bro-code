@@ -1,82 +1,61 @@
-// element selectors
-// 1. document.getElementById()           // ELEMENT OR NULL
-// 2. document.getElementsByClassName()   // HTML COLLECTION
-// 3. document.getelementsByTagName()     // HTML COLLECTION
-// 4. document.querySelector()            // ELEMENT OR NULL
-// 5. document.querySelectorAll()         // NODELIST
+// Callback hell
+
+// function task1() {
+//   console.log('Task 1 complete');
+// }
+
+// function task2() {
+//   console.log('Task 2 complete');
+// }
+
+// function task3() {
+//   console.log('Task 3 complete');
+// }
+
+// function task4() {
+//   console.log('Task 4 complete');
+// }
+
+// task1();
+// task2();
+// task3();
+// task4();
+// console.log("All task complete!");
 
 
 
-// const myHeading = document.getElementById("my-heading");
-// myHeading.style.backgroundColor = 'yellow';
-// myHeading.style.textAlign = "center";
+function task1(callback) {
+   setTimeout(() => {
+      console.log('Task 1 complete');
+      callback();
+   }, 2000);
+}
 
-// console.log(myHeading);
+function task2(callback) {
+  setTimeout(() => {
+    console.log('Task 2 complete');
+    callback();
+  }, 1000);
+}
 
+function task3(callback) {
+  setTimeout(() => {
+    console.log('Task 3 complete');
+    callback();
+  }, 3000);
+}
 
+function task4(callback) {
+  setTimeout(() => {
+    console.log('Task 4 complete');
+    callback();
+  }, 1500);
+}
 
-// const fruits = document.getElementsByClassName("fruits");
-
-// console.log(fruits);
-
-// // fruits[0].style.backgroundColor = 'red';
-// // fruits[1].style.backgroundColor = 'orange';
-// // fruits[2].style.backgroundColor = 'yellow';
-
-// // for (let fruit of fruits) {
-// //    fruit.style.backgroundColor = "yellow";
-// // }
-
-// Array.from(fruits).forEach(fruit => {
-//    fruit.style.backgroundColor = "yellow";
-// });
-
-
-
-// const h4Elements = document.getElementsByTagName('h4');
-// const liElements = document.getElementsByTagName('li');
-
-// console.log(h4Elements);
-
-// //h4Elements[0].style.backgroundColor = "yellow";
-
-// // for (let h4Element of h4Elements) {
-// //    h4Element.style.backgroundColor = "yellow";
-// // }
-
-// // for (let liElement of liElements) {
-// //    liElement.style.backgroundColor = "limegreen";
-// // }
-
-// Array.from(h4Elements).forEach(h4Element =>  {
-//    h4Element.style.backgroundColor = "yellow";
-// });
-
-// Array.from(liElements).forEach((liElement) => {
-//   liElement.style.backgroundColor = 'lightGreen';
-// });
-
-
-
-// //const element = document.querySelector('.fruits');
-// //const element = document.querySelector('h4');
-// const element = document.querySelector('ul');
-// //const element = document.querySelector('ol');
-
-// element.style.backgroundColor = "yellow"
-
-
-
-const fruits = document.querySelectorAll(".fruits");
-
-fruits[0].style.backgroundColor = "yellow";
-
-const foods = document.querySelectorAll('li');
-
-//foods[5].style.backgroundColor = 'yellow';
-
-console.log(foods);
-
-foods.forEach(food => {
-   food.style.backgroundColor = "yellow";
+task1(() => {
+   task2(() => {
+      task3(() => {
+         task4(() => console.log('All task complete!'));
+      });
+   });
 });
