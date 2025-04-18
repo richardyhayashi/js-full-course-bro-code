@@ -1,51 +1,35 @@
-const fruits = [
-  { name: 'apple', color: 'red', calories: 95 },
-  { name: 'orange', color: 'orange', calories: 45 },
-  { name: 'banana', color: 'yellow', calories: 105 },
-  { name: 'coconut', color: 'white', calories: 159 },
-  { name: 'pineapple', color: 'yellow', calories: 37 },
-];
+// sort()
+// lexicographic = (alphabet + numbers + symbols) as strings
 
-console.log(fruits[0].calories);
+//let fruits = ['apple', 'orange', 'banana', 'coconut', 'pineapple'];
 
-//fruits.push({name: "grapes", color: "purple", calories: 62});
-
-//fruits.pop();
-
-//fruits.splice(1, 2)
+//fruits.sort();
 
 //console.log(fruits);
 
-// --- forEach() ---
 
-//fruits.forEach(fruit => console.log(fruit.calories));
 
-// --- map() ---
+// let numbers = [1, 10, 2, 9, 3, 8, 4, 7, 5 ,6];
 
-const fruitNames = fruits.map(fruit => fruit.name);
-const fruitColors = fruits.map(fruit => fruit.color);
-const fruitCalories = fruits.map((fruit) => fruit.calories);
+// numbers.sort((a, b) => a - b);
+// // Reverse
+// //numbers.sort((a, b) => b - a);
 
-console.log(fruitNames);
-console.log(fruitColors);
-console.log(fruitCalories);
+// console.log(numbers);
 
-// --- filter() ---
 
-const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
-const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
-const highCalFruits = fruits.filter(fruit => fruit.calories >= 100);
 
-console.log(yellowFruits);
-console.log(lowCalFruits);
-console.log(highCalFruits);
+const people = [
+  { name: 'Spongebob', age: 30, gpa: 3.0 },
+  { name: 'Patrick', age: 37, gpa: 1.5 },
+  { name: 'Squidward', age: 51, gpa: 2.5 },
+  { name: 'Sandy', age: 27, gpa: 4.0 },
+]; 
 
-// --- reduce() ---
+//people.sort((a, b) => a.age - b.age);
+//people.sort((a, b) => b.age - a.age);
+//people.sort((a, b) => a.gpa - b.gpa);
+//people.sort((a, b) => b.gpa - a.gpa);
+people.sort((a, b) => a.name.localeCompare(b.name));
 
-const maxFruit = fruits.reduce((max, fruit) =>
-                                  fruit.calories > max.calories ? fruit : max);
-const minFruit = fruits.reduce((min, fruit) =>
-                                  fruit.calories < min.calories ? fruit : min);
-
-console.log(maxFruit);
-console.log(minFruit);
+console.log(people);
