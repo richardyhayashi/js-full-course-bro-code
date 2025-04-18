@@ -1,16 +1,52 @@
-// shuffle
-// Fisher-Yates algorithm
+// Date objects
 
-const cards = ['A', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+// let date = new Date();
 
-shuffle(cards);
+// console.log(date);
 
-console.log(cards);
 
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-      const random = Math.floor(Math.random() * (i + 1));
 
-      [array[i], array[random]] = [array[random], array[i]];
-  }
-};
+// Date(year, month, day, hour, minute, second, ms)
+//date = new Date(2024, 0, 1, 2, 3, 4, 5);
+//date = new Date('2024-01-02T12:00:00Z');
+// date = new Date(0);
+
+// console.log(date);
+
+
+// const date = new Date();
+
+// console.log(date.getFullYear());
+// // Month: 0 - Jan, 1 - Feb, ..., 11 - Dec
+// console.log(date.getMonth());
+// // Date: 1 - 31
+// console.log(date.getDate());
+// // Hours: 0 - 23
+// console.log(date.getHours());
+// // Minutes: 0 -59
+// console.log(date.getMinutes());
+// // Seconds: 0 - 59
+// console.log(date.getSeconds());
+// // 0 - Sunday, 1 - Monday, ..., 6 - Saturday
+// console.log(date.getDay());
+
+
+
+// date.setFullYear(2024);
+// date.setMonth(0);
+// date.setDate(1);
+// date.setHours(2);
+// date.setMinutes(3);
+// date.setSeconds(4);
+
+// console.log(date);
+
+
+
+const date1 = new Date('2023-12-31');
+//const date2 = new Date('2024-01-01');
+const date2 = new Date('2023-12-30');
+
+if (date2 > date1) {
+  console.log("Happy New Year!");
+}
