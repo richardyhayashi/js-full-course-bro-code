@@ -1,65 +1,94 @@
-// Promises
-// new Promise((recolve, reject) => {asynchronous code})
+// JSON
 
-function walkDog() {
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-         const dogwalked = false;
-         
-         if (dogwalked) {
-            resolve("Walk the dog 🐕")
-            
-            ;
-         } else {
-            reject("You DIDN'T walk the dog");
-         }
-      }, 1500);
-   });
-}
+// const names = ['Spongebob', 'Patrick', 'Squidward', 'Sandy'];
+// const person = {
+//   name: 'Spongebob',
+//   age: 30,
+//   isEmployed: true,
+//   hobbies: ['Jellyfishing', 'Karate', 'Cooking'],
+// };
+// const people = [
+//   {
+//     name: 'Spongebob',
+//     age: 30,
+//     isEmployed: true,
+//   },
+//   {
+//     name: 'Patrick',
+//     age: 34,
+//     isEmployed: false,
+//   },
+//   {
+//     name: 'Squidward',
+//     age: 50,
+//     isEmployed: true,
+//   },
+//   {
+//     name: 'Sandy',
+//     age: 27,
+//     isEmployed: false,
+//   },
+// ];
 
-function cleanKitchen() {
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-         const kitchenCleaned = true;
+// const jsonString = JSON.stringify(names);
+// console.log(names);
+// console.log(jsonString);
 
-         if (kitchenCleaned) {
-            resolve("You clean the kitchen 🧹");
-         } else {
-           reject("You DIDN'T clean the kitchen");
-         }
-      }, 2500);
-   });
-}
+// const jsonString2 = JSON.stringify(person);
+// console.log(person);
+// console.log(jsonString2);
 
-function takeOutTrash() {
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-         const trashTakenOut = true;
+// const jsonString3 = JSON.stringify(person);
+// console.log(people);
+// console.log(jsonString3);
 
-         if (trashTakenOut) {
-            resolve("You take out the trash ♻️");
-         } else {
-            reject("You DIDN'T take out the trash");
-         }
-      }, 500);
-   });
-}
 
-async function doChores() {
-   try {
-      const walkDogResult = await walkDog();
-      console.log(walkDogResult);
 
-      const cleanKitchenResult = await cleanKitchen();
-      console.log(cleanKitchenResult);
+// const jsonNames = `["Spongebob", "Patrick", "Squidward", "Sandy"]`;
+// const jsonPerson = `{
+//   "name": "Spongebob",
+//   "age": 30,
+//   "isEmployed": true,
+//   "hobbies": ["Jellyfishing", "Karate", "Cooking"]
+// }`;
+// const jsonPeople = `[
+//   {
+//     "name": "Spongebob",
+//     "age": 30,
+//     "isEmployed": true
+//   },
+//   {
+//     "name": "Patrick",
+//     "age": 34,
+//     "isEmployed": false
+//   },
+//   {
+//     "name": "Squidward",
+//     "age": 50,
+//     "isEmployed": true
+//   },
+//   {
+//     "name": "Sandy",
+//     "age": 27,
+//     "isEmployed": false
+//   }
+// ]`;
 
-      const takeOutTrashResult = await takeOutTrash();
-      console.log(takeOutTrashResult);
+// // const parsedData = JSON.parse(jsonNames);
+// // console.log(jsonNames);
+// // console.log(parsedData);
 
-      console.log("You finished all the chores!");
-   } catch (error) {
-      console.error(error);
-   }
-}
+// // const parseData2 = JSON.parse(jsonPerson);
+// // console.log(jsonPerson);
+// // console.log(parseData2);
 
-doChores();
+// const parseData3 = JSON.parse(jsonPeople);
+// console.log(jsonPeople);
+// console.log(parseData3);
+
+
+
+fetch("people.json")
+   .then(response => response.json())
+   .then(values  => values.forEach(value => console.log(value.name)))
+   .catch(error => console.log(error));
