@@ -1,15 +1,16 @@
-// ES6 Modules
+// asynchronous
 
-import PI, {getCricumference, getArea, getVolume, getSurfaceArea} from "./mathUtil.js";
+function func1(callback) {
+   setTimeout(() => {
+      console.log("Task 1");
+      callback();
+   }, 3000);
+}
 
+function func2() {
+   console.log('Task 2');
+   console.log('Task 3');
+   console.log('Task 4');
+}
 
-console.log(PI);
-const circumference = getCricumference(10);
-const area = getArea(10);
-const surfaceArea = getSurfaceArea(10);
-const volume = getVolume(10);
-
-console.log(`${circumference.toFixed(2)}cm`);
-console.log(`${area.toFixed(2)}cm^2`);
-console.log(`${surfaceArea.toFixed(2)}cm^2`);
-console.log(`${volume.toFixed(2)}cm^3`);
+func1(func2);
